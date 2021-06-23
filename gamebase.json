@@ -1,5 +1,5 @@
 {
-    "games":[
+    "games": [
         {
             "name": "Colonist",
             "link": "https://colonist.io/",
@@ -17,6 +17,5 @@
             "link": "https://lite.mahjongtime.com/#/login?ret=%2FTW%2Flobby%2Fgames",
             "image_link": "",
             "description": ""
-        }
-    ]
+        }]
 }
