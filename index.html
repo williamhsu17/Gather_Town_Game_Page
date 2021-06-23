@@ -39,11 +39,14 @@
         var input_room_number = document.getElementById("room_number");
         var button_go = document.getElementById("go_button");
 
-        var data = fetch("./gamebase.json").then(function(response){
+        var gameData;
+        
+        fetch("./gamebase.json").then(function(response){
             return response.json();
         })
         .then(function(data){
             console.log(data);
+            gameData = data;
         });
 
         // var data = {
@@ -64,9 +67,9 @@
         // }
 
         var ulDropDownmenu = document.getElementById("ul-dropdown-menu");
-        for (var key in data["games"]){
-            if (data["games"].hasOwnProperty(key)) {
-                ulDropDownmenu.insertAdjacentHTML( 'beforeend', '<li><a class="dropdown-item" href="?link=' + data["games"][key].link + '">' + data["games"][key].name + '</a></li>' );
+        for (var key in gameData["games"]){
+            if (gameData["games"].hasOwnProperty(key)) {
+                ulDropDownmenu.insertAdjacentHTML( 'beforeend', '<li><a class="dropdown-item" href="?link=' + gameData["games"][key].link + '">' + gameData["games"][key].name + '</a></li>' );
             }
         }
 
