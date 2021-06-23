@@ -39,12 +39,11 @@
         var input_room_number = document.getElementById("room_number");
         var button_go = document.getElementById("go_button");
 
-        fetch("./gamebase.json").then(function(resp){
-            return resp.json();
+        var data = fetch("./gamebase.json").then(function(response){
+            return response.json();
         })
         .then(function(data){
             console.log(data);
-            var data = data;
         });
 
         // var data = {
