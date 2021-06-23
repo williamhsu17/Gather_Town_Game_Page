@@ -3,13 +3,13 @@
         {
             "name": "Colonist",
             "link": "https://colonist.io/",
-            "image_link": "",
+            "image_link": "image/game_icon/colonist.png",
             "description": ""
         },
         {
-            "name": "",
-            "link": "",
-            "image_link": "",
+            "name": "Lipoker",
+            "link": "https://lipoker.io/",
+            "image_link": "image/game_icon/lipoker.png",
             "description": ""
         }
     ]

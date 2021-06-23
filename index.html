@@ -6,20 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gather Town Game Link</title>
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
         <div class="row justify-content-md-center">
-            <div class="col-6">
-                <h3>Gather Town遊戲連結</h3>
-                <p>將遊戲房間的代號輸入以下框中後按to the game</p>
+            <div class="col-6 mt-5">
+                <h3>Gather Town Game Link</h3>
+                <h6>Steps:</h6>
+                <ol>
+                    <li>select the game you want to play</li>
+                    <li>if the game host gives you a private room number, copy and past the number into input box </li>
+                    <li>click go to the game button</li>
+                </ol>
+                <div class="dropdown mb-3">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select Game
+                    </button>
+                    <ul class="dropdown-menu" id="ul-dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    </ul>
+                </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="base_link">https://colonist.io/</span>
                     <input type="text" class="form-control" id="room_number" aria-describedby="basic-addon3">
                     <button type="button" class="btn btn-primary" id="go_button">to the game</button>
                 </div>
-                <p>Gather Town可以在app中使用內嵌網頁讓參與者使用別的web遊戲網頁，不過目前的遊戲網頁大多使用生成連結的方式讓遊戲的參與者加入私人房間，這讓gather town的使用者比較難直接利用GT的機制直接進入私人房間，因此製作這個中間頁面用以跳轉。</p>
             </div>
         </div>
     </div>
@@ -35,11 +46,33 @@
             console.log(data);
         });
 
+        // var data = {
+        //     "games":[
+        //         {
+        //             "name": "Colonist",
+        //             "link": "https://colonist.io/",
+        //             "image_link": "image/game_icon/colonist.png",
+        //             "description": ""
+        //         },
+        //         {
+        //             "name": "Lipoker",
+        //             "link": "https://lipoker.io/",
+        //             "image_link": "image/game_icon/lipoker.png",
+        //             "description": ""
+        //         }
+        //     ]
+        // }
+
+        var ulDropDownmenu = document.getElementById("ul-dropdown-menu");
+        for (var key in data["games"]){
+            if (data["games"].hasOwnProperty(key)) {
+                ulDropDownmenu.insertAdjacentHTML( 'beforeend', '<li><a class="dropdown-item" href="?link=' + data["games"][key].link + '">' + data["games"][key].name + '</a></li>' );
+            }
+        }
+
         const queryString = window.location.search;
-        console.log(queryString)
         const urlParams = new URLSearchParams(queryString);
         const base_link = urlParams.get('link')
-        console.log(base_link);
         document.getElementById("base_link").innerHTML = base_link;
 
         // Execute a function when the user releases a key on the keyboard
@@ -63,7 +96,7 @@
             window.open(link, "_self");
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="undefined" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="undefined" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.esm.min.js" integrity="undefined" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.esm.min.js"></script>
 </html>
