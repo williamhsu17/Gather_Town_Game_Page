@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gather Town Game Link</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-6">
+                <h3>Gather Town遊戲連結</h3>
+                <p>將遊戲房間的代號輸入以下框中後按to the game</p>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="base_link">https://colonist.io/</span>
+                    <input type="text" class="form-control" id="room_number" aria-describedby="basic-addon3">
+                    <button type="button" class="btn btn-primary" id="go_button">to the game</button>
+                </div>
+                <p>Gather Town可以在app中使用內嵌網頁讓參與者使用別的web遊戲網頁，不過目前的遊戲網頁大多使用生成連結的方式讓遊戲的參與者加入私人房間，這讓gather town的使用者比較難直接利用GT的機制直接進入私人房間，因此製作這個中間頁面用以跳轉。</p>
+            </div>
+        </div>
+    </div>
+</body>
+    <script>
+        var input_room_number = document.getElementById("room_number");
+        var button_go = document.getElementById("go_button");
+
+        const queryString = window.location.search;
+        console.log(queryString)
+        const urlParams = new URLSearchParams(queryString);
+        const base_link = urlParams.get('link')
+        console.log(base_link);
+        document.getElementById("base_link").innerHTML = base_link;
+
+        // Execute a function when the user releases a key on the keyboard
+        input_room_number.addEventListener("keyup", function(event) {
+            // Press "Enter" key on the keyboard
+            if (event.keyCode === 13) {
+                // event.preventDefault();
+                // TODO add base link and room number and launch the combined link 
+                var base_link = document.getElementById("base_link").innerHTML; 
+                var room_number = document.getElementById("room_number").value
+                var link = base_link + room_number
+                window.open(link, "_self");
+            }
+        });
+        button_go.addEventListener("click", function(event) {
+            event.preventDefault();
+            // TODO add base link and room number and launch the combined link
+            var base_link = document.getElementById("base_link").innerHTML; 
+            var room_number = document.getElementById("room_number").value
+            var link = base_link + room_number
+            window.open(link, "_self");
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="undefined" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="undefined" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.esm.min.js" integrity="undefined" crossorigin="anonymous"></script>
+</html>
