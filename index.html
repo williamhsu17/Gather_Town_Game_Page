@@ -47,6 +47,13 @@
         .then(function(data){
             console.log(data);
             gameData = data;
+
+            var ulDropDownmenu = document.getElementById("ul-dropdown-menu");
+            for (var key in gameData["games"]){
+                if (gameData["games"].hasOwnProperty(key)) {
+                ulDropDownmenu.insertAdjacentHTML( 'beforeend', '<li><a class="dropdown-item" href="?link=' + gameData["games"][key].link + '">' + gameData["games"][key].name + '</a></li>' );
+            }
+        }
         });
 
         // var data = {
@@ -65,13 +72,6 @@
         //         }
         //     ]
         // }
-
-        var ulDropDownmenu = document.getElementById("ul-dropdown-menu");
-        for (var key in gameData["games"]){
-            if (gameData["games"].hasOwnProperty(key)) {
-                ulDropDownmenu.insertAdjacentHTML( 'beforeend', '<li><a class="dropdown-item" href="?link=' + gameData["games"][key].link + '">' + gameData["games"][key].name + '</a></li>' );
-            }
-        }
 
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
