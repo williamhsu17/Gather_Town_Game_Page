@@ -1,5 +1,5 @@
 # Gather Town Game Page
-this is for gather.town app so my friends and I have a easier life when we wanna play board game in my space.
+this is for [gather.town](https://gather.town/) app so my friends and I have a easier life when we wanna play board game in my space.
 
 ### Goals:
 - [x] create a intermedia page so we can add private room string to the url and join a private room directly.
