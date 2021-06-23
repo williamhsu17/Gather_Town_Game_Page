@@ -1,11 +1,10 @@
 # Gather Town Game Page
 this is for [gather.town](https://gather.town/) app so my friends and I have a easier life when we wanna play board game in my space.
-you can use this link for the gamepage:
+You can use this link for the gamepage:
 
 [https://williamhsu17.github.io/Gather_Town_Game_Page/index.html](https://williamhsu17.github.io/Gather_Town_Game_Page/index.html)
 
-add a param for specific game
-
+add a param for a specific game  
 [https://williamhsu17.github.io/Gather_Town_Game_Page/index.html?link=https://colonist.io/](https://williamhsu17.github.io/Gather_Town_Game_Page/index.html?link=https://colonist.io/)
 
 ### Goals:
